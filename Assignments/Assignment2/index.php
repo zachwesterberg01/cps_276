@@ -8,7 +8,7 @@ foreach ($numbers as $n) {
     }
 }
 
-$evenNumbers .= 'Even Numbers: ' . implode(' - ', $evens) . "\n";
+$evenNumbers = 'Even Numbers: ' . implode(' - ', $evens);
 
 $form = <<<HTML
 <form class="mb-4" action="#" method="post">
