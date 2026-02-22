@@ -2,7 +2,7 @@
 
 function addClearNames(): string
 {
-    /
+    
     if (isset($_POST["clear"])) {
         return "";
     }
