@@ -36,3 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
+
+/*
+1.) What is the purpose of separating the functionality between index.php and processNames.php in this assignment?
+2.) How does the $_SERVER["REQUEST_METHOD"] variable help determine when to process form submissions in PHP?
+3.) How does PHP handle string-to-array conversion using the explode function, and why is this useful in this application?
+4.) What role does the implode function play in formatting the output for the textarea?
+5.) How does processNames.php determine whether to add a new name or clear all names based on which button was clicked?
+*/
