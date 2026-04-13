@@ -33,7 +33,7 @@ class Date_time {
             return $this->createAlert("Must enter date, time, and note", "danger");
         }
 
-        $timestamp = strtotime($dateTime);
+        $timestamp = strtotime($dateTime); /* Conversion */ 
 
         if ($timestamp === false) {
             return $this->createAlert("Must enter date, time, and note", "danger");
@@ -55,7 +55,7 @@ class Date_time {
     }
 
     private function displayNotes() {
-        $begDate = isset($_POST['begDate']) ? trim($_POST['begDate']) : '';
+        $begDate = isset($_POST['begDate']) ? trim($_POST['begDate']) : ''; /* Input */
         $endDate = isset($_POST['endDate']) ? trim($_POST['endDate']) : '';
 
         if ($begDate === '' || $endDate === '') {
@@ -63,15 +63,15 @@ class Date_time {
         }
 
         $begTimestamp = strtotime($begDate . " 00:00:00");
-        $endTimestamp = strtotime($endDate . " 23:59:59");
+        $endTimestamp = strtotime($endDate . " 23:59:59"); 
 
-        if ($begTimestamp === false || $endTimestamp === false || $begTimestamp > $endTimestamp) {
+        if ($begTimestamp === false || $endTimestamp === false || $begTimestamp > $endTimestamp) /* Validation */ {
             return $this->createAlert("No notes found for date range selected", "danger");
         }
 
         $sql = "SELECT date_time, note
                 FROM note
-                WHERE date_time BETWEEN :begDate AND :endDate
+                WHERE date_time BETWEEN :begDate AND :endDate /* Query */
                 ORDER BY date_time DESC";
 
         $bindings = [
@@ -85,7 +85,7 @@ class Date_time {
             return $this->createAlert("No notes found for date range selected", "danger");
         }
 
-        return $this->buildTable($records);
+        return $this->buildTable($records); /* Display */
     }
 
     private function buildTable($records) {
